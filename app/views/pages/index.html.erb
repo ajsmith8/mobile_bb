@@ -1,0 +1,8 @@
+<h1>Home Page</h1>
+
+<div>Enter an email to sign up or sign in with your existing email</div>
+</br>
+<%= form_for(@user) do |f| %>
+	<%= f.text_field :email %>
+	<%= f.submit "Submit!" %>
+<% end %>

@@ -1,0 +1,2 @@
+module CTRelsHelper
+end

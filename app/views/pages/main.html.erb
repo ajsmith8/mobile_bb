@@ -1,0 +1,26 @@
+<div id = "main_page">Computing . . .</div>
+
+<script type = 'text/json' id = 'main_json'>
+	{
+		"current_user": <%= current_user.to_json %>,
+		"users": <%= User.all.to_json %>,
+		"topics": <%= T.all.to_json %>,
+		"reasons": <%= Reason.all.to_json %>,
+		"sources": <%= Source.all.to_json %>,
+		"quiz_qs": <%= QuizQ.all.to_json %>,
+		"categories": <%= Category.all.to_json %>,
+	}
+</script>
+
+<%= content_for :javascript do -%>
+	<script type = 'text/javascript'>
+		$(function() {
+			var div, data;
+			div = $('<div></div>');
+			div.html($('#main_json').text());
+			data = JSON.parse(div.text());
+			
+			MobileBb.init(data);
+		});
+	</script>
+<% end %>

@@ -9,6 +9,12 @@
 		"sources": <%= Source.all.to_json %>,
 		"quiz_qs": <%= QuizQ.all.to_json %>,
 		"categories": <%= Category.all.to_json %>,
+		"tasks": <%= Task.all.to_json %>,
+		"task_activities": <%= TaskActivity.all.to_json %>,
+		"browse_tasks": <%= BrowseTask.all.to_json %>,
+		"browse_task_activities": <%= BrowseTaskActivity.all.to_json %>,
+		"quiz_tasks": <%= QuizTask.all.to_json %>,
+		"quiz_task_activities": <%= QuizTaskActivity.all.to_json %>
 	}
 </script>
 

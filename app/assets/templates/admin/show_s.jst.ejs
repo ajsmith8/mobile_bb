@@ -1,0 +1,48 @@
+<h1>Source Show</h1>
+<button id = "to_main" type = "button">To Topics</button>
+<button id = "to_topic_show" type = "button">To Topic Show</button>
+<button id = "to_reason_show" type = "button">To Reason Show</button>
+<h2 id = "source"><%= source.get("description") %></h2>
+<div><%= source.get("url") %></div>
+<button type = "button" id = "edit_source" value = "<%= source.get("id") %>">Edit Source</button>
+</br>
+</br>
+
+<% quiz_qs.each(function(q) { %>
+	<% if (q.get("source_id") === source.get("id")) { %>
+		<li id = "quiz_q" value = "<%= q.get("id") %>" style = "font-weight:bold"><%= q.get("question") %></li>
+		<%= q.get("score") %>
+		<button type = "button" id = "plus" value = "<%= q.get("id") %>">+</button>
+		<button type = "button" id = "minus" value = "<%= q.get("id") %>">-</button></br>
+		<div style = "margin-left: 1em">
+			<li><b><%= q.get("correct") %></b></li>
+			<li><%= q.get("wrong1") %></li>
+			<% if (!(q.get("wrong2") === "")) { %>
+				<li><%= q.get("wrong2") %></li>
+			<% } %>
+			<% if (!(q.get("wrong3") === "")) { %>
+				<li><%= q.get("wrong3") %></li>
+			<% } %>
+			<% if (!(q.get("wrong4") === "")) { %>
+				<li><%= q.get("wrong4") %></li>
+			<% } %>
+		</div>
+	<% } %>
+<% }); %>
+</br>
+<div>New Quiz Question:</div>
+<form id = "new_quiz_q">
+	<label>Question:</label></br>
+	<input type = "text" id = "question"></br>
+	<label>Correct:</label></br>
+	<input type = "text" id = "correct"></br>
+	<label>Wrong 1:</label></br>
+	<input type = "text" id = "wrong1"></br>
+	<label>Wrong 2:</label></br>
+	<input type = "text" id = "wrong2"></br>
+	<label>Wrong 3:</label></br>
+	<input type = "text" id = "wrong3"></br>
+	<label>Wrong 4:</label></br>
+	<input type = "text" id = "wrong4"></br>
+	<input type = "submit" value = "Create" id = "submit"></br>
+</form>

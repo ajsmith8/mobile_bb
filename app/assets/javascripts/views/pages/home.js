@@ -3,7 +3,7 @@ MobileBb.Views.PagesHome = Backbone.View.extend({
 	template: JST['pages/home'],
 	
 	events: {
-		'click #admin_sign_in' : 'adminSignIn'
+		'click #next' : 'next'
 	},
 	
 	render: function() {
@@ -11,7 +11,7 @@ MobileBb.Views.PagesHome = Backbone.View.extend({
 		return this;
 	},
 	
-	adminSignIn: function() {
-		Backbone.history.navigate('admin', true);
+	next: function() {
+		Backbone.history.navigate('categories', true);
 	}
 });

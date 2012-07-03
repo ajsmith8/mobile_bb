@@ -1,0 +1,20 @@
+<button type = "button" id = "menu">Menu</button>
+<button type = "button" id = "explore">Explore</button>
+
+<h1><%= reason.get("title") %></h1>
+
+<button type = "button" id = "next">Next</button>
+
+<% for (i = 0; i < sources.length; i++) { %>
+	<li>
+		<%= sources[i].get("description") %>
+	</li>
+<% } %>
+
+<div><%= reason.get("description") %></div>
+
+<% for (i = 0; i < sources.length; i++) { %>
+	<li>
+		<%= sources[i].get("url") %>
+	</li>
+<% } %>

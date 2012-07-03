@@ -1,1 +1,19 @@
-<button id = 'new_t' type = 'button'>Create Topic</button>
+<h1>Topics</h1>
+</br>
+<form id = "new_t">
+	<label>New Topic:</label></br>
+	<input type = "text" id = "new_t_title"></br>
+	<input type = "submit" value = "Create" id = "submit"></br>
+</form>
+
+<ul>
+	<% topics.each(function(t) { %>
+		<li id = "topic" value = "<%= t.get("id") %>">
+			<%= t.get("title") %>
+		</li>
+		<%= t.get("score") %>
+		<button type = "button" id = "plus" value = "<%= t.get("id") %>">+</button>
+		<button type = "button" id = "minus" value = "<%= t.get("id") %>">-</button>
+	
+	<% }); %>
+</ul></br>

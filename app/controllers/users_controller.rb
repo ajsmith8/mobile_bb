@@ -31,4 +31,11 @@ class UsersController < ApplicationController
   def destroy
     respond_with User.destroy(params[:id])
   end
+  
+  def new
+    @user = User.new
+    @user.save
+    session[:user_id] = @user.id
+    redirect_to main_path
+  end
 end

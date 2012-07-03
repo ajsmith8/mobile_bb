@@ -1,0 +1,13 @@
+<h1>Explore</h1>
+<button type = "button" id = "back">Back</button>
+<% for (i = 0; i < array.length; i++) { %>
+	<li id = "task" value = "<%= i %>">
+		<% if (array[i].task.get("description") === "click through topic") { %>
+		<%= array[i].topic.get("title") + "  " + b_t_acts.where({user_id: current_user.get("id"), task_id: 2, t_id: array[i].topic.get("id")}).length + '/' + array[i].topic.get("reasons_approved") %></br>
+		<% } else { %>
+			<%= array[i].topic.get("title") + "  " + q_t_acts.where({user_id: current_user.get("id"), task_id: 2, t_id: array[i].topic.get("id")}).length + '/' + array[i].topic.get("reasons_approved") %></br>
+		<% } %>
+		<%= array[i].score %></br>
+		<%= array[i].task.get("description") %>
+	</li>
+<% } %>

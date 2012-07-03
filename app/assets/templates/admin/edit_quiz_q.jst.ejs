@@ -1,0 +1,16 @@
+<h1><%= quiz_q.get("question") %></h1>
+<form id = "quiz_q">
+	<label>Question:</label></br>
+	<input type = "text" id = "question" value = "<%= quiz_q.get("question") %>"></br>
+	<label>Correct:</label></br>
+	<input type = "text" id = "correct" value = "<%= quiz_q.get("correct") %>"></br>
+	<label>Wrong 1:</label></br>
+	<input type = "text" id = "wrong1" value = "<%= quiz_q.get("wrong1") %>"></br>
+	<label>Wrong 2:</label></br>
+	<input type = "text" id = "wrong2" value = "<%= quiz_q.get("wrong2") %>"></br>
+	<label>Wrong 3:</label></br>
+	<input type = "text" id = "wrong3" value = "<%= quiz_q.get("wrong3") %>"></br>
+	<label>Wrong 4:</label></br>
+	<input type = "text" id = "wrong4" value = "<%= quiz_q.get("wrong4") %>"></br>
+	<input type = "submit" value = "Update" id = "submit"></br>
+</form>

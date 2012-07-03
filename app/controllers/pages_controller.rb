@@ -4,5 +4,10 @@ class PagesController < ApplicationController
   end
   
   def main
+    
+  end
+  
+  def admin
+    @user = User.new
   end
 end

@@ -1,5 +1,6 @@
 MobileBb.Collections.Users = Backbone.Collection.extend({
 
-  model: MobileBb.Models.User
+	model: MobileBb.Models.User,
+	url: 'users'
 
 });

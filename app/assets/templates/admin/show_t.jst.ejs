@@ -1,0 +1,41 @@
+<h1>Topic Show</h1>
+<button id = "to_main" type = "button">To Topics</button>
+<h2 id = "topic"><%= topic.get("title") %></h2>
+<div><%= topic.get("description") %></div>
+<button type = "button" id = "edit_topic" value = "<%= topic.get("id") %>">Edit Topic</button>
+</br>
+</br>
+
+<form id = "new_pro">
+	<label>New Pro:</label></br>
+	<input type = "text" id = "new_pro_title"></br>
+	<input type = "submit" value = "Create" id = "submit_pro"></br>
+</form>
+<ul>
+	<% reasons.each(function(r) { %>
+		<% if (r.get("is_pro") && topic.get("id") === r.get("t_id")) { %>
+			<li id = "reason" value = "<%= r.get("id") %>"><%= r.get("title") %></li>
+			<%= r.get("score") %>
+			<button type = "button" id = "plus" value = "<%= r.get("id") %>">+</button>
+			<button type = "button" id = "minus" value = "<%= r.get("id") %>">-</button>
+		<% } %>
+	<% }); %>
+</ul>
+</br>
+
+<form id = "new_con">
+	<label>New Con:</label></br>
+	<input type = "text" id = "new_con_title"></br>
+	<input type = "submit" value = "Create" id = "submit_con"></br>
+</form>
+<ul>
+	<% reasons.each(function(r) { %>
+		<% if (!r.get("is_pro") && topic.get("id") === r.get("t_id")) { %>
+			<li id = "reason" value = "<%= r.get("id") %>"><%= r.get("title") %></li>
+			<%= r.get("score") %>
+			<button type = "button" id = "plus" value = "<%= r.get("id") %>">+</button>
+			<button type = "button" id = "minus" value = "<%= r.get("id") %>">-</button>	
+		<% } %>
+	<% }); %>
+</ul>
+

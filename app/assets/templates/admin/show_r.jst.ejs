@@ -1,0 +1,27 @@
+<h1>Reason Show</h1>
+<button id = "to_main" type = "button">To Topics</button>
+<button id = "to_topic_show" type = "button">To Topic Show</button>
+<h2 id = "reason"><%= reason.get("title") %></h2>
+<div><%= reason.get("description") %></div>
+<button type = "button" id = "edit_reason" value = "<%= reason.get("id") %>">Edit Reason</button>
+</br>
+</br>
+
+<% sources.each(function(s) { %>
+	<% if (s.get("reason_id") === reason.get("id")) { %>
+		<li id = "source" value = "<%= s.get("id") %>"><%= s.get("description") %></li>
+		<%= s.get("score") %>
+		<button type = "button" id = "plus" value = "<%= s.get("id") %>">+</button>
+		<button type = "button" id = "minus" value = "<%= s.get("id") %>">-</button></br>
+		<%= s.get("url") %></br></br>
+	<% } %>
+<% }); %>
+</br>
+<div>New Source:</div>
+<form id = "new_source">
+	<label>Description:</label></br>
+	<input type = "text" id = "description"></br>
+	<label>Url:</label></br>
+	<input type = "text" id = "url"></br>
+	<input type = "submit" value = "Create" id = "submit"></br>
+</form>

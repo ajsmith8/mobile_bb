@@ -11,20 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120622183103) do
+ActiveRecord::Schema.define(:version => 20120702194827) do
 
-  create_table "c_t_rels", :force => true do |t|
-    t.integer  "category_id"
+  create_table "browse_task_activities", :force => true do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.integer  "reference_id"
+    t.string   "data"
+    t.boolean  "is_complete"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.integer  "t_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
   end
 
-  create_table "c_u_rels", :force => true do |t|
-    t.integer  "category_id"
-    t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+  create_table "browse_tasks", :force => true do |t|
+    t.string   "description"
+    t.string   "model_name"
+    t.integer  "parent_id"
+    t.integer  "xp_value"
+    t.integer  "lvl_req",     :default => 0
+    t.integer  "rank",        :default => 0
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "categories", :force => true do |t|
@@ -48,6 +56,28 @@ ActiveRecord::Schema.define(:version => 20120622183103) do
     t.datetime "updated_at",                     :null => false
   end
 
+  create_table "quiz_task_activities", :force => true do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.integer  "reference_id"
+    t.string   "data"
+    t.boolean  "is_complete"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "t_id"
+  end
+
+  create_table "quiz_tasks", :force => true do |t|
+    t.string   "description"
+    t.string   "model_name"
+    t.integer  "parent_id"
+    t.integer  "xp_value"
+    t.integer  "lvl_req",     :default => 0
+    t.integer  "rank",        :default => 0
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
+
   create_table "reasons", :force => true do |t|
     t.integer  "t_id"
     t.text     "description"
@@ -68,6 +98,29 @@ ActiveRecord::Schema.define(:version => 20120622183103) do
     t.boolean  "is_supporting"
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
+    t.integer  "t_id"
+  end
+
+  create_table "task_activities", :force => true do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.integer  "reference_id"
+    t.string   "data"
+    t.boolean  "is_complete"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "t_id"
+  end
+
+  create_table "tasks", :force => true do |t|
+    t.string   "description"
+    t.string   "model_name"
+    t.integer  "parent_id"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "rank",        :default => 0
+    t.integer  "xp_value"
+    t.integer  "lvl_req",     :default => 0
   end
 
   create_table "ts", :force => true do |t|
@@ -75,10 +128,19 @@ ActiveRecord::Schema.define(:version => 20120622183103) do
     t.text     "description"
     t.string   "source_url"
     t.string   "url"
-    t.integer  "score",       :default => 0
-    t.boolean  "is_approved", :default => false
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.integer  "score",            :default => 0
+    t.boolean  "is_approved",      :default => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.integer  "politics",         :default => 0
+    t.integer  "current_events",   :default => 0
+    t.integer  "finance",          :default => 0
+    t.integer  "health",           :default => 0
+    t.integer  "tech",             :default => 0
+    t.integer  "education",        :default => 0
+    t.integer  "reasons_approved"
+    t.integer  "product"
+    t.float    "fraction"
   end
 
   create_table "users", :force => true do |t|
@@ -86,10 +148,18 @@ ActiveRecord::Schema.define(:version => 20120622183103) do
     t.string   "uid"
     t.string   "email"
     t.string   "name"
-    t.boolean  "is_admin",     :default => false
-    t.boolean  "is_temp_user", :default => true
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.boolean  "is_admin",       :default => false
+    t.boolean  "is_temp_user",   :default => true
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.integer  "tech",           :default => 0
+    t.integer  "education",      :default => 0
+    t.integer  "politics",       :default => 0
+    t.integer  "health",         :default => 0
+    t.integer  "current_events", :default => 0
+    t.integer  "finance",        :default => 0
+    t.integer  "xp",             :default => 0
+    t.integer  "level",          :default => 0
   end
 
 end

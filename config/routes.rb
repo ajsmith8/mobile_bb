@@ -1,14 +1,19 @@
 MobileBb::Application.routes.draw do
   
+  resources :quiz_task_activities
+  resources :browse_task_activities
+  resources :quiz_tasks
+  resources :browse_tasks
+  resources :task_activities
+  resources :tasks
   resources :categories
-  resources :c_u_rels
-  resources :c_t_rels
   resources :ts
   resources :reasons
   resources :sources
   resources :quiz_qs
   resources :users
 
+  match '/admin', to: 'pages#admin'
   match '/main', to: 'pages#main'
   root to: 'pages#index'
 

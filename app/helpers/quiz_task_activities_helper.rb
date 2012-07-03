@@ -1,0 +1,2 @@
+module QuizTaskActivitiesHelper
+end

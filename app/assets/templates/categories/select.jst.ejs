@@ -1,0 +1,10 @@
+<h1>Pick some Categories</h1>
+<% categories.each(function(c) { %>
+	<% if (current_user.get(c.get("name").toLowerCase().replace(" ", "_")) >= 10) { %>
+		<input type = "checkbox" value = "<%= c.get("id") %>" id = "category" checked><%= c.get("name") %></br>
+	<% } else { %>
+		<input type = "checkbox" value = "<%= c.get("id") %>" id = "category"><%= c.get("name") %></br>
+	<% } %>
+<% }); %>
+</br>
+<button type = "button" id = "next">Next</button>

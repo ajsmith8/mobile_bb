@@ -137,7 +137,10 @@ MobileBb.Views.PagesExplore = Backbone.View.extend({
 		this.topicFilter(t_array);
 		for(i = 0; i < t_array.length; i++) {
 			if (!(quiz_task_activities.where({
-					model_name: "topic", reference_id: t_array[i].topic.get("id"), user_id: current_user.get("id")})[0])) {
+							task_id: 1, 
+							reference_id: t_array[i].topic.get("id"), 
+							t_id: t_array[i].topic.get("id"), 
+							user_id: current_user.get("id")})[0])) {
 				q_array.push(t_array[i]);
 			}
 		}

@@ -1,0 +1,18 @@
+<button type = "button" id = "menu">Menu</button>
+<button type = "button" id = "explore">Explore</button>
+
+<h1><%= quiz_q.get("question") %></h1>
+
+<button type = "button" id = "learn_more">Learn More</button>
+<div id = "source" style = "display:none">
+	<div><%= source.get("description") %></div>
+	<li><%= source.get("url") %></li>
+</div>
+
+<ul>
+	<% for (i = 0; i < answers.length; i++) { %>
+		<li id = "answer" value = "<%= i %>"><%= answers[i] %></li></br>
+	<% } %>
+</ul>
+			
+

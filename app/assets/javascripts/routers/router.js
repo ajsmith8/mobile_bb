@@ -7,7 +7,10 @@ MobileBb.Routers.Router = Backbone.Router.extend({
 		'main'							: 'main',
 		'browse_tasks/:task_id/:t_id' 	: 'topicBrowseTask',
 		'quiz_tasks/:task_id/:t_id' 	: 'topicQuizTask',
-		'browse_reasons/:task_id/:t_id' : 'browseReasons'
+		'browse_reasons/:t_id/:r_id' 	: 'browseReasons',
+		'quiz_questions/:t_id/:q_id'	: 'quizQuestions',
+		'question/:q_id/correct' 		: 'quizCorrect',
+		'question/:q_id/wrong' 			: 'quizWrong'
 		
 	},
 	
@@ -74,10 +77,21 @@ MobileBb.Routers.Router = Backbone.Router.extend({
 	topicBrowseTask: function(task_id, t_id) {
 		var view = new MobileBb.Views.BrowseTasksTopic({
 			topic: this.topics.where({id: parseInt(t_id)})[0],
-			parent_task: this.browse_tasks.where({id: parseInt(task_id)})[0],
 			current_user: this.current_user,
-			browse_task_activities: this.browse_task_activities.where({user_id: this.current_user.get("id"), task_id: 2}),
-			reasons: this.reasons.where({t_id: parseInt(t_id)})
+			browse_task_activities: this.browse_task_activities,
+			reasons: this.reasons
+		});
+		$('#main_page').html(view.render().el);
+	},
+	
+	browseReasons: function(t_id, r_id) {
+		var view = new MobileBb.Views.BrowseTaskActivitiesBrowseReasons({
+			topic: this.topics.where({id: parseInt(t_id)})[0],
+			current_user: this.users.where({id: this.current_user.get("id")})[0],
+			b_t_acts: this.browse_task_activities,
+			reasons: this.reasons,
+			sources: this.sources.where({reason_id: parseInt(r_id)}),
+			reason: this.reasons.where({id: parseInt(r_id)})[0]
 		});
 		$('#main_page').html(view.render().el);
 	},
@@ -85,22 +99,43 @@ MobileBb.Routers.Router = Backbone.Router.extend({
 	topicQuizTask: function(task_id, t_id) {
 		var view = new MobileBb.Views.QuizTasksTopic({
 			topic: this.topics.where({id: parseInt(t_id)})[0],
-			task: this.quiz_tasks.where({id: parseInt(task_id)})[0],
 			current_user: this.current_user,
-			quiz_task_activities: this.quiz_task_activities.where({user_id: this.current_user.get("id")}),
-			reasons: this.reasons.where({t_id: parseInt(t_id)})
+			quiz_task_activities: this.quiz_task_activities,
+			quiz_qs: this.quiz_qs
 		});
 		$('#main_page').html(view.render().el);
 	},
 	
-	browseReasons: function(task_id, t_id) {
-		var view = new MobileBb.Views.BrowseTaskActivitiesBrowseReasons({
-			topic: this.topics.where({id: parseInt(t_id)})[0],
-			parent_task: this.browse_tasks.where({id: parseInt(task_id)})[0],
+	quizQuestions: function(t_id, q_id) {
+		var view = new MobileBb.Views.QuizTaskActivitiesQuizQuestions({
+			topic:this.topics.where({id: parseInt(t_id)})[0],
 			current_user: this.users.where({id: this.current_user.get("id")})[0],
-			browse_task_activities: this.browse_task_activities,
-			reasons: this.reasons,
-			sources: this.sources
+			q_t_acts: this.quiz_task_activities,
+			quiz_qs: this.quiz_qs,
+			source: this.sources.where({id: this.quiz_qs.where({id: parseInt(q_id)})[0].get("source_id")})[0],
+			quiz_q: this.quiz_qs.where({id: parseInt(q_id)})[0]
+		});
+		$('#main_page').html(view.render().el);
+	},
+	
+	quizCorrect: function(q_id) {
+		var view = new MobileBb.Views.QuizTaskActivitiesQuizCorrect({
+			quiz_q: this.quiz_qs.where({id: parseInt(q_id)})[0],
+			quiz_qs: this.quiz_qs,
+			current_user: this.users.where({id: this.current_user.get("id")})[0],
+			q_t_acts: this.quiz_task_activities,
+			topic: this.topics.where({id: this.quiz_qs.where({id: parseInt(q_id)})[0].get("t_id")})[0]
+		});
+		$('#main_page').html(view.render().el);
+	},
+	
+	quizWrong: function(q_id) {
+		var view = new MobileBb.Views.QuizTaskActivitiesQuizWrong({
+			quiz_q: this.quiz_qs.where({id: parseInt(q_id)})[0],
+			quiz_qs: this.quiz_qs,
+			current_user: this.users.where({id: this.current_user.get("id")})[0],
+			q_t_acts: this.quiz_task_activities,
+			topic: this.topics.where({id: this.quiz_qs.where({id: parseInt(q_id)})[0].get("t_id")})[0]
 		});
 		$('#main_page').html(view.render().el);
 	}

@@ -16,9 +16,10 @@ MobileBb.Views.BrowseTasksTopic = Backbone.View.extend({
 	},
 	
 	browseTopic: function() {
-		var task_id = this.options.parent_task.get("id");
-		var t_id = this.options.topic.get("id");
-		Backbone.history.navigate('browse_reasons/' + task_id + '/' + t_id, true);
+		var b_t_acts = this.options.browse_task_activities;
+		var topic = this.options.topic;
+		var current_user = this.options.current_user;
+		this.options.reasons.isTopicDone(b_t_acts, topic, current_user);
 	},
 	
 	menu: function() {

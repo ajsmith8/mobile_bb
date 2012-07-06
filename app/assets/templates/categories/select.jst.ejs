@@ -1,10 +1,52 @@
-<h1>Pick some Categories</h1>
+<div class = "row header">
+	<div class = "two columns mobile-one"></div>
+	<div class = "eight columns mobile-two" style =  "margin-top: -0.5em">
+		<h4 style = "text-align: center">fuseGap</h4>
+	</div>
+	<div class = "two columns mobile-one"></div>
+</div>
+<div class = "below-header"></div>
+<h3 style = "text-align: center">Pick Some Categories:</h3>
+
+<% var left = true; %>
 <% categories.each(function(c) { %>
-	<% if (current_user.get(c.get("name").toLowerCase().replace(" ", "_")) >= 10) { %>
-		<input type = "checkbox" value = "<%= c.get("id") %>" id = "category" checked><%= c.get("name") %></br>
-	<% } else { %>
-		<input type = "checkbox" value = "<%= c.get("id") %>" id = "category"><%= c.get("name") %></br>
+	<% if (left) { %>
+		<div class = "row ">
+	<% } %>
+		<% if (left) { %>
+			<div class = "one columns"></div>
+			<div class = "four columns">
+				<% if (current_user.get(c.get("name").toLowerCase().replace(" ", "_")) >= 10) { %>
+					<button type = "button" class = "success button radius" value = "<%= c.get("id") %>" id = "category" style = "width: 100%"><%= c.get("name") %></button>
+				<% } else { %>
+					<button type = "button" class = "secondary button radius" value = "<%= c.get("id") %>" id = "category" style = "width: 100%"><%= c.get("name") %></button>
+				<% } %>
+			</div>
+			<% left = false; %>
+		<% } else { %>
+			<div class = "two columns"></div>
+			<div class = "four columns">
+				<% if (current_user.get(c.get("name").toLowerCase().replace(" ", "_")) >= 10) { %>
+					<button type = "button" class = "success button radius" value = "<%= c.get("id") %>" id = "category" style = "width: 100%"><%= c.get("name") %></button>
+				<% } else { %>
+					<button type = "button" class = "secondary button radius" value = "<%= c.get("id") %>" id = "category" style = "width: 100%"><%= c.get("name") %></button>
+				<% } %>
+			</div>
+			<div class = "one columns"></div>		
+		<% left = true; %>
+		<% } %>
+	<% if (left) { %>
+		</div>
 	<% } %>
 <% }); %>
 </br>
-<button type = "button" id = "next">Next</button>
+</br>
+<div class = "row">
+	<div class = "mobile-one columns"></div>
+	<div class = "four columns centered mobile-two">
+		<button type = "button" class = "primary button radius large" id = "next" style = "width: 100%">Next</button>
+	</div>
+	<div class = "mobile-one columns"></div>
+</div>
+
+

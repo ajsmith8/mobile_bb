@@ -1,6 +1,26 @@
-<h1>Home Page</h1>
+<div class = "row header">
+	<div class = "two columns mobile-one"></div>
+	<div class = "eight columns mobile-two" style =  "margin-top: -0.5em">
+		<h4 style = "text-align: center">fuseGap</h4>
+	</div>
+	<div class = "two columns mobile-one"></div>
+</div>
+<div class = "below-header"></div>
+<h3 style = "text-align: center">Welcome to fuseGap!</h3>
 
-<div>
-	<%= link_to("New User", new_user_path) %>
-	<%= link_to("Returning User", root_url) %>
+</br>
+</br>
+<div class = "row">
+	<div class = "mobile-one columns"></div>
+	<div class = "four columns centered mobile-two">
+			<%= link_to("New User", new_user_path, "type" => "button", "class" => "primary button radius large", "style" => "width: 100%") %>
+	</div>
+	<div class = "mobile-one columns"></div>
+</div>
+<div class = "row">
+	<div class = "mobile-one columns"></div>
+	<div class = "four columns centered mobile-two">
+		<%= link_to("Returning User", root_url, "type" => "button", "class" => "secondary button radius large", "style" => "width: 100%") %>
+	</div>
+	<div class = "mobile-one columns"></div>
 </div>

@@ -17,14 +17,19 @@ MobileBb.Views.CategoriesSelect = Backbone.View.extend({
 	
 	updateCategory: function() {
 		var value;
+		var element = $(event.target);
 		var category = this.options.categories.where({id: parseInt($(event.target).val())})[0];
 		var category_name = category.get("name").toLowerCase().replace(" ", "_");
 		var current_value = this.options.current_user.get(category_name);
 		if (current_value >= 10) {
+			element.removeClass("success");
+			element.addClass("secondary");
 			value = current_value - 10;
 			this.options.current_user.set(category_name, value);
 			this.options.current_user.save();
 		} else {
+			element.addClass("success");
+			element.removeClass("secondary");
 			value = current_value + 10;
 			this.options.current_user.set(category_name, value);
 			this.options.current_user.save();

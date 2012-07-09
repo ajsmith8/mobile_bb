@@ -54,7 +54,7 @@
 	background-image:         linear-gradient( lighten($color, 10%) /*{start}*/, darken($color, 10%) /*{end}*/);
 }
 
-@mixin pressed-gradients($color) {
+@mixin reverse-gradients($color) {
 	background-image: -webkit-gradient(linear, left top, left bottom, from( darken($color, 10%) /*{start}*/), to( lighten($color, 10%) /*{end}*/)); /* Saf4+, Chrome */
 	background-image: -webkit-linear-gradient( darken($color, 10%) /*{start}*/, lighten($color, 10%) /*{end}*/); /* Chrome 10+, Saf5.1+ */
 	background-image:    -moz-linear-gradient( darken($color, 10%) /*{start}*/, lighten($color, 10%) /*{end}*/); /* FF3.6 */

@@ -8,6 +8,7 @@ gem 'rails', '3.2.6'
 gem 'backbone-on-rails'
 gem 'thin'
 gem 'sass-rails',   '~> 3.2.3'
+gem 'omniauth-facebook'
 
 group :development do
   gem 'sqlite3'

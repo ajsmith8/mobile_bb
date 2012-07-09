@@ -12,7 +12,9 @@ MobileBb::Application.routes.draw do
   resources :sources
   resources :quiz_qs
   resources :users
-
+  
+  
+  match "/auth/:provider/callback" => "sessions#create"
   match '/admin', to: 'pages#admin'
   match '/main', to: 'pages#main'
   root to: 'pages#index'

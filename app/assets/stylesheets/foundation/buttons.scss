@@ -43,25 +43,25 @@
     &.primary { background-color: $mainColor; border: 1px solid darken(($mainColor), 15%);
       &:hover { background-color: darken(($mainColor), 10%); @include gradients(darken($mainColor, 10%));}
       &:focus { @include box-shadow(0 0 4px opacify($mainColor, 0.3), 0 1px 0 $shinyEdge inset); }
-	  &:active { @include pressed-gradients(darken($mainColor, 15%));}
+	  &:active { @include reverse-gradients(darken($mainColor, 15%));}
 	  @include gradients($mainColor);
     }
     &.success { background-color: $successColor; border: 1px solid darken(($successColor), 15%);
       &:hover { background-color: darken(($successColor), 10%); @include gradients(darken($successColor, 10%));}
       &:focus { @include box-shadow(0 0 5px opacify($successColor, 0.4), 0 1px 0 $shinyEdge inset);}
-	  &:active { @include pressed-gradients(darken($successColor, 15%));}
+	  &:active { @include reverse-gradients(darken($successColor, 15%));}
 	  @include gradients($successColor);
     }
     &.alert { background-color: $alertColor; border: 1px solid darken(($alertColor), 15%);
       &:hover { background-color: darken(($alertColor), 10%); @include gradients(darken($alertColor, 10%)) }
       &:focus { @include box-shadow(0 0 4px opacify($alertColor, 0.3), 0 1px 0 $shinyEdge inset); }
-	  &:active { @include pressed-gradients(darken($alertColor, 15%));}
+	  &:active { @include reverse-gradients(darken($alertColor, 15%));}
 	  @include gradients($alertColor);
     }
     &.secondary { background-color: $secondaryColor; color: darken(($secondaryColor), 80%); border: 1px solid darken(($secondaryColor), 15%);
       &:hover { background-color: darken(($secondaryColor), 10%); @include gradients(darken($secondaryColor, 10%)) }
       &:focus { @include box-shadow(0 0 5px opacify($secondaryColor, 0.5), 0 1px 0 $shinyEdge inset); }
-	  &:active { @include pressed-gradients(darken($secondaryColor, 15%));}
+	  &:active { @include reverse-gradients(darken($secondaryColor, 15%));}
 	  @include gradients($secondaryColor);
     }
 

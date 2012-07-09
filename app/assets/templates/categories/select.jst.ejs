@@ -14,8 +14,7 @@
 		<div class = "row ">
 	<% } %>
 		<% if (left) { %>
-			<div class = "one columns"></div>
-			<div class = "four columns">
+			<div class = "six mobile-two columns">
 				<% if (current_user.get(c.get("name").toLowerCase().replace(" ", "_")) >= 10) { %>
 					<button type = "button" class = "success button radius" value = "<%= c.get("id") %>" id = "category" style = "width: 100%"><%= c.get("name") %></button>
 				<% } else { %>
@@ -24,15 +23,13 @@
 			</div>
 			<% left = false; %>
 		<% } else { %>
-			<div class = "two columns"></div>
-			<div class = "four columns">
+			<div class = "six mobile-two columns">
 				<% if (current_user.get(c.get("name").toLowerCase().replace(" ", "_")) >= 10) { %>
 					<button type = "button" class = "success button radius" value = "<%= c.get("id") %>" id = "category" style = "width: 100%"><%= c.get("name") %></button>
 				<% } else { %>
 					<button type = "button" class = "secondary button radius" value = "<%= c.get("id") %>" id = "category" style = "width: 100%"><%= c.get("name") %></button>
 				<% } %>
-			</div>
-			<div class = "one columns"></div>		
+			</div>		
 		<% left = true; %>
 		<% } %>
 	<% if (left) { %>

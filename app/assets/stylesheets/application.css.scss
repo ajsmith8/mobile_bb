@@ -21,13 +21,160 @@
 	color: #fff;
 	height: 3em;
 	@include gradients(#1f3140);
-	box-shadow: 0px 1px 1px rgba(0,0,0,0.5);
+	box-shadow: 0px 1px 1px rgba(#000 ,0.5);
 	position: fixed;
 	width: 100%;
 	top: 0%;
-	z-index: 1;
+	z-index: 10;
 }
 
 .below-header {
 	height: 3em;
+}
+
+.progress-container {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 3em; 
+	background: $mainColor; 
+	border: 1px solid darken(($secondaryColor), 35%); 
+	@include box-shadow(0 1px 0 $darkEdge inset); 
+	color: $white; 
+	cursor: pointer; 
+	display: inline-block;  
+	line-height: 1; 
+	margin: 0; 
+	outline: none;  
+	margin-bottom: $btnBase;
+	@include reverse-gradients(darken($secondaryColor, 25%));
+	@include border-radius($buttonRadius);
+}
+
+.progress-bar {
+	z-index: 1;
+	position: absolute;
+	top: 0px;
+	left: 0px; 
+	height: 3em;
+	background: $mainColor; 
+	border: 1px solid darken(($mainColor), 15%); 
+	@include box-shadow(0 1px 0 $shinyEdge inset); 
+	color: $white; 
+	cursor: pointer; 
+	display: inline-block; 
+	line-height: 1; 
+	margin: 0; 
+	outline: none;  
+	margin-bottom: $btnBase;
+	@include gradients($mainColor);
+	@include border-radius($buttonRadius);
+}
+
+.progress-text {
+	width: 100%;
+	z-index: 2;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 3em;
+	color: $white;
+	text-align: center;
+	padding: $btnBase ($btnBase * 2) ($btnBase + 1);  
+	margin-bottom: $btnBase;
+	display: inline-block; 
+	@include defaultFontFamily; 
+	font-size: ms(0) + 3; 
+	font-weight: bold; 
+	line-height: 1; 
+	margin: 0;
+	text-shadow: 0px 1px 1px rgba(#000, 0.5);
+}
+
+.invisible-button {
+	width: 100%;
+	z-index: 3;
+	position: absolute;
+	top: 0px;
+	left: 0px; 
+	height: 3.75em;
+	background: rgba(#000, 0); 
+	cursor: pointer; 
+	display: inline-block; 
+	line-height: 1; 
+	margin: 0; 
+	outline: none;
+	border: none; 
+	padding: $btnBase ($btnBase * 2) ($btnBase + 1);  
+	margin-bottom: $btnBase;
+	@include border-radius($buttonRadius);
+	&:hover {
+		 background-color: rgba(#fff, 0.25);
+	}
+	&:active {
+		@include reverse-gradients(rgba(#000, 0.25));
+	}
+}
+
+.meter-container {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 1.5em; 
+	background: darken($secondaryColor, 35%); 
+	border: 1px solid darken(($secondaryColor), 35%); 
+	@include box-shadow(0 1px 0 $darkEdge inset); 
+	color: $white; 
+	cursor: pointer; 
+	display: inline-block;  
+	line-height: 1; 
+	margin: 0; 
+	outline: none; 
+	margin-bottom: $btnBase;
+	@include reverse-gradients(darken($secondaryColor, 25%));
+}
+
+.meter-bar {
+	z-index: 1;
+	position: absolute;
+	top: 0px;
+	left: 0px; 
+	height: 1.5em;
+	background: $successColor; 
+	border: 1px solid darken(($successColor), 15%); 
+	@include box-shadow(0 1px 0 $shinyEdge inset); 
+	color: $white; 
+	cursor: pointer; 
+	display: inline-block; 
+	line-height: 1; 
+	margin: 0; 
+	outline: none; 
+	margin-bottom: $btnBase;
+	@include gradients($successColor);
+}
+
+.meter-text {
+	width: 100%;
+	z-index: 2;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 1.5em;
+	color: $white;
+	text-align: center;
+	padding: ($tinyBtnBase) ($tinyBtnBase * 2) ($tinyBtnBase + 1);
+	margin-bottom: $btnBase;
+	display: inline-block; 
+	@include defaultFontFamily; 
+	font-size: ms(0); 
+	font-weight: bold; 
+	line-height: 1; 
+	margin: 0;
+	text-shadow: 0px 1px 1px rgba(#000, 0.5);
+}
+
+.countdown {
+	
 }

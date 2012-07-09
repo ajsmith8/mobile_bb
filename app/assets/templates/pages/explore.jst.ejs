@@ -1,13 +1,43 @@
-<h1>Explore</h1>
-<button type = "button" id = "back">Back</button>
+<div class = "row header">
+	<div class = "two columns mobile-one">
+		<button type = "button" id = "back" class = "primary round button small" style = "width: 100%; margin-top: 0.5em">Back</button>
+	</div>
+	<div class = "eight columns mobile-two" style =  "margin-top: -0.5em">
+		<h4 style = "text-align: center">fuseGap</h4>
+	</div>
+	<div class = "two columns mobile-one">
+		<button type = "button" id = "back" class = "primary round button small" style = "width: 100%; float: right; margin-top: 0.5em">Back</button>
+	</div>
+</div>
+<div class = "below-header"></div>
+<h3 style = "text-align: center">Explore:</h3>
+
+<% var width, total, complete; %>
 <% for (i = 0; i < array.length; i++) { %>
-	<li id = "task" value = "<%= i %>">
-		<% if (array[i].task.get("description") === "click through topic") { %>
-		<%= array[i].topic.get("title") + "  " + b_t_acts.where({user_id: current_user.get("id"), task_id: 2, t_id: array[i].topic.get("id")}).length + '/' + array[i].topic.get("reasons_approved") %></br>
-		<% } else { %>
-			<%= array[i].topic.get("title") + "  " + q_t_acts.where({user_id: current_user.get("id"), task_id: 2, t_id: array[i].topic.get("id")}).length + '/' + array[i].topic.get("reasons_approved") %></br>
-		<% } %>
-		<%= array[i].score %></br>
-		<%= array[i].task.get("description") %>
-	</li>
+	<div class = "row" style = "margin-bottom: 4em">
+		<div class = "twelve columns">
+				<button class = "invisible-button" value = "<%= i %>" id = "task"></button>
+			<% if (array[i].task.get("description") === "click through topic") { %>
+				<% complete = b_t_acts.where({user_id: current_user.get("id"), task_id: 2, t_id: array[i].topic.get("id")}).length; %>
+				<% total = array[i].topic.get("reasons_approved"); %>
+				<% width = (complete / total) * 100; %>
+				<% if (width !== 0) { %>
+					<div class = "progress-bar" style = "width: <%= width %>%"></div>
+				<% } %>
+				<div class = "progress-container"></div>
+				<div class = "progress-text">
+					<%= array[i].task.get("description") + ": " + array[i].topic.get("title") %>
+				</div>
+			<% } else { %>
+				<% complete = q_t_acts.where({user_id: current_user.get("id"), task_id: 2, t_id: array[i].topic.get("id")}).length; %>
+				<% total = array[i].topic.get("reasons_approved"); %>
+				<% width = (complete / total) * 100; %>
+				<div class = "progress-bar" style = "width: <%= width %>%"></div>
+				<div class = "progress-container"></div>
+				<div class = "progress-text">
+					<%= array[i].task.get("description") + ": " + array[i].topic.get("title") %>
+				</div>
+			<% } %>
+		</div>
+	</div>
 <% } %>

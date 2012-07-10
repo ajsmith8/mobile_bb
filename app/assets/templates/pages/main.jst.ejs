@@ -12,14 +12,36 @@
 <div class = "below-header"></div>
 <h3 style = "text-align: center">Try some buttons out!</h3>
 </br></br></br>
-<% var points = 1000; %>
+<% var points1 = 10.0, points2 = 10.0, points3 = 10.0, points4 = 10.0; %>
 <div class = "row">
-	<div class = "one columns centered">
+	<div class = "four columns"></div>
+	<div class = "one columns" id = "timer">
 		<div class = "meter-container"></div>
 		<div id = "meter" class = "meter-bar" style = "width: 100%"></div>
-		<div id = "timer" class = "meter-text"><%= points %></div>
+		<div id = "time" class = "meter-text"><%= points1 %></div>
 	</div>
+	<div class = "one columns" id = "timer">
+		<div class = "meter-container"></div>
+		<div id = "meter" class = "meter-bar" style = "width: 100%"></div>
+		<div id = "time" class = "meter-text"><%= points2 %></div>
+	</div>
+	<div class = "one columns" id = "timer">
+		<div class = "meter-container"></div>
+		<div id = "meter" class = "meter-bar" style = "width: 100%"></div>
+		<div id = "time" class = "meter-text"><%= points3 %></div>
+	</div>
+	<div class = "one columns" id = "timer">
+		<div class = "meter-container"></div>
+		<div id = "meter" class = "meter-bar" style = "width: 100%"></div>
+		<div id = "time" class = "meter-text"><%= points4 %></div>
+	</div>
+	<div class = "four coulmns"></div>
 </div>
+
 <button type = "button" id = "correct">Right</button>
-</br>
 <button type = "button" id = "wrong">Fail</button>
+</br></br>
+<button type = "button" id = "reset">Reset</button>
+
+
+

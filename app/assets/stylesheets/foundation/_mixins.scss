@@ -62,3 +62,20 @@
 	background-image:      -o-linear-gradient( darken($color, 10%) /*{start}*/, lighten($color, 10%) /*{end}*/); /* Opera 11.10+ */
 	background-image:         linear-gradient( darken($color, 10%) /*{start}*/, lighten($color, 10%) /*{end}*/);
 }
+
+@mixin progress-bars($color, $height) {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: $height; 
+	background: $color; 
+	border: 1px solid darken(($color), 15%); 
+	color: $white; 
+	cursor: pointer; 
+	display: inline-block;  
+	line-height: 1; 
+	margin: 0; 
+	outline: none;  
+	margin-bottom: $btnBase;
+	text-align: center;
+}

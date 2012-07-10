@@ -33,62 +33,30 @@
 }
 
 .progress-container {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	width: 100%;
-	height: 3em; 
-	background: $mainColor; 
-	border: 1px solid darken(($secondaryColor), 35%); 
-	@include box-shadow(0 1px 0 $darkEdge inset); 
-	color: $white; 
-	cursor: pointer; 
-	display: inline-block;  
-	line-height: 1; 
-	margin: 0; 
-	outline: none;  
-	margin-bottom: $btnBase;
-	@include reverse-gradients(darken($secondaryColor, 25%));
 	@include border-radius($buttonRadius);
+	@include progress-bars(darken($secondaryColor, 25%), 3em);
+	width: 100%;
+	@include box-shadow(0 1px 0 $darkEdge inset); 
+	@include reverse-gradients(darken($secondaryColor, 25%));
 }
 
 .progress-bar {
-	z-index: 1;
-	position: absolute;
-	top: 0px;
-	left: 0px; 
-	height: 3em;
-	background: $mainColor; 
-	border: 1px solid darken(($mainColor), 15%); 
-	@include box-shadow(0 1px 0 $shinyEdge inset); 
-	color: $white; 
-	cursor: pointer; 
-	display: inline-block; 
-	line-height: 1; 
-	margin: 0; 
-	outline: none;  
-	margin-bottom: $btnBase;
-	@include gradients($mainColor);
 	@include border-radius($buttonRadius);
+	z-index: 1;
+	@include box-shadow(0 1px 0 $shinyEdge inset); 
+	@include progress-bars($mainColor, 3em);
+	@include gradients($mainColor);
 }
 
 .progress-text {
-	width: 100%;
+	@include border-radius($buttonRadius);
 	z-index: 2;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	height: 3em;
-	color: $white;
-	text-align: center;
+	@include progress-bars(rgba(#000, 0), 3em);
+	width: 100%;
 	padding: $btnBase ($btnBase * 2) ($btnBase + 1);  
-	margin-bottom: $btnBase;
-	display: inline-block; 
 	@include defaultFontFamily; 
 	font-size: ms(0) + 3; 
 	font-weight: bold; 
-	line-height: 1; 
-	margin: 0;
 	text-shadow: 0px 1px 1px rgba(#000, 0.5);
 }
 
@@ -118,63 +86,34 @@
 }
 
 .meter-container {
-	position: absolute;
-	top: 0px;
-	left: 0px;
 	width: 100%;
-	height: 1.5em; 
-	background: darken($secondaryColor, 35%); 
-	border: 1px solid darken(($secondaryColor), 35%); 
+	@include progress-bars(darken($secondaryColor, 25%), 1.5em);
 	@include box-shadow(0 1px 0 $darkEdge inset); 
-	color: $white; 
-	cursor: pointer; 
-	display: inline-block;  
-	line-height: 1; 
-	margin: 0; 
-	outline: none; 
-	margin-bottom: $btnBase;
 	@include reverse-gradients(darken($secondaryColor, 25%));
 }
 
 .meter-bar {
 	z-index: 1;
-	position: absolute;
-	top: 0px;
-	left: 0px; 
-	height: 1.5em;
-	background: $successColor; 
-	border: 1px solid darken(($successColor), 15%); 
+	@include progress-bars($successColor, 1.5em);
 	@include box-shadow(0 1px 0 $shinyEdge inset); 
-	color: $white; 
-	cursor: pointer; 
-	display: inline-block; 
-	line-height: 1; 
-	margin: 0; 
-	outline: none; 
-	margin-bottom: $btnBase;
 	@include gradients($successColor);
+}
+
+.meter-bar-fail {
+	width: 100%;
+	z-index: 1;
+	@include progress-bars($alertColor, 1.5em);
+	@include box-shadow(0 1px 0 $shinyEdge inset); 
+	@include gradients($alertColor);
 }
 
 .meter-text {
 	width: 100%;
 	z-index: 2;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	height: 1.5em;
-	color: $white;
-	text-align: center;
-	padding: ($tinyBtnBase) ($tinyBtnBase * 2) ($tinyBtnBase + 1);
-	margin-bottom: $btnBase;
-	display: inline-block; 
+	@include progress-bars(rgba(#000, 0), 1.5em);
+	padding: ($tinyBtnBase/2) ($tinyBtnBase * 2) ($tinyBtnBase + 1);
 	@include defaultFontFamily; 
 	font-size: ms(0); 
 	font-weight: bold; 
-	line-height: 1; 
-	margin: 0;
 	text-shadow: 0px 1px 1px rgba(#000, 0.5);
-}
-
-.countdown {
-	
 }

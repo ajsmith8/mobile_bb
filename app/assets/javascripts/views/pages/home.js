@@ -5,7 +5,8 @@ MobileBb.Views.PagesHome = Backbone.View.extend({
 	events: {
 		'click #next' : 'next',
 		'click #friends' : 'getFriends',
-		'click #feed-post' : 'feedPost'
+		'click #feed-post' : 'feedPost',
+		'click #sharePost' : 'sharePost'
 	},
 	
 	render: function() {
@@ -27,6 +28,17 @@ MobileBb.Views.PagesHome = Backbone.View.extend({
 	
 	feedPost: function() {
         var obj = { method: 'feed', link: 'http://www.fusegap.com', name: 'fuseGap', caption: 'Reference Documentation', description: 'Testing shit.'};
+		function callback(response) 
+		{
+       		document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+        }
+		FB.ui(obj, callback);
+	},
+	
+	sharePost: function() {
+		var id = $(event.target).val();
+		var me = this.options.current_user.get("uid");
+		var obj = { method: 'feed', link: 'http://www.fusegap.com', name: 'fuseGap', caption: 'Reference Documentation', description: 'Testing shit.', to: id, from: me};
 		function callback(response) 
 		{
        		document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];

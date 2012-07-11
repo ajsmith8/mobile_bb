@@ -6,6 +6,7 @@
 			<%= "name: " + friends[i]["name"] %></br>
 			<%= "id: " + friends[i]["id"] %>
 			<img src="https://graph.facebook.com/<%= friends[i]["id"] %>/picture"/>
+			<button type = "button" id = "sharePost" value = "<%= friends[i]["id"] %>">Share</button>
 		</li>
 	<% } %>
 </ul>

@@ -1,9 +1,24 @@
-<button type = "button" id = "menu">Menu</button>
-<button type = "button" id = "explore">Explore</button>
+<div class = "row header">
+	<div class = "two columns mobile-one">
+		<button type = "button" id = "menu" class = "primary round button small" style = "width: 100%; margin-top: 0.5em">Menu</button>
+	</div>
+	<div class = "eight columns mobile-two" style =  "margin-top: -0.5em">
+		<h4 style = "text-align: center">fuseGap</h4>
+	</div>
+	<div class = "two columns mobile-one">
+		<button type = "button" id = "explore" class = "primary round button small" style = "width: 100%; float: right; margin-top: 0.5em">Explore</button>
+	</div>
+</div>
+<div class = "below-header"></div>
 
-<h1><%= quiz_q.get("question") %></h1>
-
-<button type = "button" id = "learn_more">Learn More</button>
+<h4 style = "text-align: center"><%= quiz_q.get("question") %></h4>
+<div class = "row">
+	<div class = "three columns mobile-one"></div>
+	<div class = "three columns mobile-one">
+		<button type = "button" class = "primary dropdown button" style = "width: 100%" id = "learn_more">Learn More</button>
+	</div>
+	<div class = "six columns mobile-two"></div>
+</div>
 <div id = "source" style = "display:none">
 	<div><%= source.get("description") %></div>
 	<li><%= source.get("url") %></li>
@@ -15,4 +30,3 @@
 	<% } %>
 </ul>
 			
-

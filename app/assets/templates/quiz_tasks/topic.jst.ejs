@@ -1,8 +1,24 @@
-<button type = "button" id = "menu">Menu</button>
-<button type = "button" id = "explore">Explore</button>
+<div class = "row header">
+	<div class = "two columns mobile-one">
+		<button type = "button" id = "menu" class = "primary round button small" style = "width: 100%; margin-top: 0.5em">Menu</button>
+	</div>
+	<div class = "eight columns mobile-two" style =  "margin-top: -0.5em">
+		<h4 style = "text-align: center">fuseGap</h4>
+	</div>
+	<div class = "two columns mobile-one">
+		<button type = "button" id = "explore" class = "primary round button small" style = "width: 100%; float: right; margin-top: 0.5em">Explore</button>
+	</div>
+</div>
+<div class = "below-header"></div>
 
-<h1><%= topic.get("title") %></h1>
+<h4 style = "text-align: center"><%= topic.get("title") %></h4>
 
 <div><%= topic.get("description") %></div>
 
-<button type = "button" id = "continue">Continue</button>
+<div class = "row">
+	<div class = "mobile-one columns"></div>
+	<div class = "four columns centered mobile-two">
+		<button type = "button" class = "button primary radius simple-border" style = "width:100%" id = "continue">Quiz Me</button>
+	</div>
+	<div class = "mobile-one columns"></div>
+</div>

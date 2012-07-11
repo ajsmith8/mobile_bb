@@ -1,0 +1,11 @@
+<h4>These are my FRIENDS!!!</h4>
+<ul> 
+	<% for (i = 0; i < friends.length; i++) { %>
+		<li>
+			<% var image; %>
+			<%= "name: " + friends[i]["name"] %></br>
+			<%= "id: " + friends[i]["id"] %>
+			<img src="https://graph.facebook.com/<%= friends[i]["id"] %>/picture"/>
+		</li>
+	<% } %>
+</ul>

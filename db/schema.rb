@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120702194827) do
+ActiveRecord::Schema.define(:version => 20120710210925) do
 
   create_table "browse_task_activities", :force => true do |t|
     t.integer  "task_id"
@@ -160,6 +160,7 @@ ActiveRecord::Schema.define(:version => 20120702194827) do
     t.integer  "finance",        :default => 0
     t.integer  "xp",             :default => 0
     t.integer  "level",          :default => 0
+    t.string   "token"
   end
 
 end
